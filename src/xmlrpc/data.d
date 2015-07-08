@@ -6,7 +6,7 @@ module xmlrpc.data;
 
 import xmlrpc.error;
 import std.variant : Variant;
-import std.functional : reduce;
+import std.algorithm : reduce;
 import std.conv : to;
 import std.string : format;
 
