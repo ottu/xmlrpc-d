@@ -27,7 +27,7 @@ class XmlRpcException : Exception
  */
 class MethodFaultException : XmlRpcException
 {
-    package this(Variant value, string message)
+    @system package this(Variant value, string message)
     {
         this.value = value;
         super(message);
@@ -38,7 +38,7 @@ class MethodFaultException : XmlRpcException
         this(value, format("XMLRPC method failure: %s", value.toString()));
     }
     
-    this(string faultString, int faultCode)
+    @system this(string faultString, int faultCode)
     {
         this(makeFaultValue(faultString, faultCode));
     }
@@ -66,7 +66,7 @@ enum FciFaultCodes : int
     transportError   = -32_300
 }
 
-package Variant makeFaultValue(string faultString, int faultCode)
+@system package Variant makeFaultValue(string faultString, int faultCode)
 {
     return Variant(["faultCode": Variant(faultCode), "faultString": Variant(faultString)]);
 }
